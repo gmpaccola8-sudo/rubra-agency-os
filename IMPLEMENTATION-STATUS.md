@@ -5,18 +5,32 @@
 > Espelho: Google Drive → `RUBRA AGENCY OS / DOCUMENTACAO / IMPLEMENTATION-STATUS.md`.
 > O histórico completo de versões deste arquivo está no Git (`git log -p IMPLEMENTATION-STATUS.md`).
 
-Última atualização: 2026-11-26 (4ª rodada) · Fase atual: **Entrega da versão 1.0**
+Última atualização: 2026-11-26 (4ª rodada) · Fase atual: **Operação e validação prática (1.0 instalada)**
 
 ---
 
 ## Próxima ação
 
-**RUBRA OS 1.0 INSTALADO** (8 skills aceitas pelo claude.ai em 2026-11-26).
-**Gabriela:** (1) desativar as 32 skills antigas; (2) colar a linha global nas preferências do perfil;
-(3) teste de aceitação com um cliente real. Configuração local fica como etapa opcional seguinte.
+**FASE ATUAL: OPERAÇÃO E VALIDAÇÃO PRÁTICA** (desde 2026-11-26).
+Configuração inicial concluída pela Gabriela: 8 skills RUBRA habilitadas, 32 antigas desativadas
+(não excluídas; backup no Drive), instrução global do RUBRA OS no perfil.
+
+Regras desta fase:
+- Nenhuma pesquisa, instalação ou desenvolvimento novo sem necessidade surgida em trabalho real.
+- Cada problema encontrado em uso vira item do backlog com o caso real que o originou.
+- A Gabriela não precisa saber nomes de skills, ferramentas ou scripts: orientar qual ambiente usar.
+- Uso enxuto da franquia (plano Pro).
 
 | Item | Estado |
 |---|---|
+| 8 skills instaladas = repositório = Drive (`INSTALAR`) | ✅ conferidas arquivo a arquivo (8/8) |
+| 32 skills antigas | desativadas; excluir só após validação em trabalho real |
+| Instrução global no perfil | ✅ |
+| Acionamento por linguagem natural | ✅ 5/5 (Claude Code); Chat/Cowork a confirmar no 1º trabalho real |
+| Primeiro trabalho real de cliente (teste de aceitação) | ⏳ próximo |
+| Configuração local (Drive para computador + app Claude) | adiada até um trabalho real precisar (vídeo pesado) |
+
+---|---|
 | 8 skills instaladas no claude.ai | ✅ aceitas (corrigidas: cabeçalho só name/description, description ≤ 200) |
 | Repositório e Drive = versões instaladas | ✅ 5 conferidas byte a byte com as sincronizadas; direcao/grafico/marca ainda não sincronizaram nesta sessão — conferir na próxima |
 | Regra de empacotamento | ✅ `docs/EMPACOTAMENTO.md`; `setup/empacotar-skills.sh` recusa pacote inválido (teste negativo ok) |
