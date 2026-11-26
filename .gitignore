@@ -1,0 +1,70 @@
+# RUBRA AGENCY OS — o que NUNCA entra neste repositório.
+# Materiais de clientes, fontes licenciadas, fotos, vídeos e credenciais ficam no Google Drive.
+# Uma segunda barreira (scripts/verificar-confidencial.sh) roda antes de cada commit.
+
+# Clientes e trabalho de produção
+clientes/
+CLIENTES/
+demandas/
+entregas/
+calibracao/
+saidas/
+output/
+renders/
+tmp/
+
+# Fontes (quase sempre licenciadas)
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# Imagens, vídeo e áudio
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.heic
+*.tif
+*.tiff
+*.psd
+*.ai
+*.indd
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+
+# Pacotes e backups
+*.zip
+*.tar.gz
+*.rar
+
+# Credenciais
+.env
+.env.*
+*.key
+*.pem
+credentials*.json
+secrets*
+token*.json
+
+# Ambiente e dependências
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Exceção futura: assets próprios do sistema (ícones de teste, exemplos sintéticos) vão em
+# assets-sistema/ e precisam ser liberados explicitamente com git add -f após verificação.
