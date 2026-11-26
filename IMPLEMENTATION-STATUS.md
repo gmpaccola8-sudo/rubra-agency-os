@@ -11,12 +11,20 @@
 
 ## Próxima ação
 
-**RUBRA OS 1.0 empacotado.** 8 skills em Drive → `RUBRA AGENCY OS / INSTALAR` (+ guia).
-**Gabriela:** (1) subir os 8 ZIPs no claude.ai; (2) aprovar a lista de remoção (32) e desativá-las.
-**Depois:** teste de aceitação com uma demanda real; configuração local (Drive para computador + app Claude).
+**RUBRA OS 1.0 INSTALADO** (8 skills aceitas pelo claude.ai em 2026-11-26).
+**Gabriela:** (1) desativar as 32 skills antigas; (2) colar a linha global nas preferências do perfil;
+(3) teste de aceitação com um cliente real. Configuração local fica como etapa opcional seguinte.
 
-| Etapa 1.0 | Status |
+| Item | Estado |
 |---|---|
+| 8 skills instaladas no claude.ai | ✅ aceitas (corrigidas: cabeçalho só name/description, description ≤ 200) |
+| Repositório e Drive = versões instaladas | ✅ 5 conferidas byte a byte com as sincronizadas; direcao/grafico/marca ainda não sincronizaram nesta sessão — conferir na próxima |
+| Regra de empacotamento | ✅ `docs/EMPACOTAMENTO.md`; `setup/empacotar-skills.sh` recusa pacote inválido (teste negativo ok) |
+| Acionamento por linguagem natural (Claude Code nuvem) | ✅ 5/5 pedidos acionaram a skill certa; conflito com skill antiga (carousel-architect) observado → desativar antigas |
+| Acionamento no Chat / Cowork / Projects | ⏳ validar no teste de aceitação |
+| Desativação das 32 antigas | ⏳ Gabriela (aprovada) |
+
+---|---|
 | 1 Aprovar lista de skills | ⏳ Gabriela |
 | 2 Escrever as skills (8/8) | ✅ |
 | 3 Empacotar + guia no Drive | ✅ ZIPs conferidos byte a byte |
@@ -173,6 +181,8 @@ A pasta pré-existente "RUBRA" (posts da própria RUBRA) não foi tocada.
 | D21 | 11-26 | Três níveis de validação criativa: técnico, estético, publicitário. | Pedido da Gabriela. |
 | D22 | 11-26 | Não instalar Impeccable/Taste como skills; incorporar mecanismos. | Focados em web; hooks/binários geram ruído. |
 | D23 | 11-26 | Skills do sistema nunca citam cliente ou briefing específico. | Universalidade e benchmark justo. |
+| D24 | 11-26 | Pacotes de skill seguem docs/EMPACOTAMENTO.md (só name/description; description ≤ 200, entre aspas). | Rejeição dos 8 ZIPs no importador. |
+| D25 | 11-26 | Versão instalada no claude.ai é a fonte da verdade; repositório é sincronizado a partir dela. | Correção feita fora do repositório. |
 | D18 | 11-26 | Dependências de motion locais (sem CDN). | CDN bloqueado e frágil; reprodutibilidade. |
 
 ## Arquitetura de funções (aprovada em princípio)

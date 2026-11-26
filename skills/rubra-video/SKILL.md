@@ -1,7 +1,6 @@
 ---
 name: rubra-video
-description: Edição de filmagem real da RUBRA — vídeos brutos de clientes viram Reels, vídeos institucionais e anúncios com cortes por narrativa, legendas revisadas, tratamento de áudio e exportação MP4. Use quando houver gravação existente para editar. Para vídeo criado do zero (motion, animação), use rubra-motion.
-version: 1.0.0
+description: "Edita filmagens reais da RUBRA: cortes por narrativa, transcrição, legendas revisadas, tratamento de áudio e exportação MP4. Para animações do zero, use rubra-motion."
 ---
 
 # RUBRA · Edição de vídeo (filmagem real)

@@ -1,7 +1,6 @@
 ---
 name: rubra-motion
-description: Motion design e vídeo autoral da RUBRA — teasers, Reels criados do zero, vídeos publicitários, animação tipográfica, cenas 3D, sonoplastia, com render em MP4. Use para vídeo que não parte de filmagem existente. Remotion é o motor principal; HyperFrames é complementar.
-version: 1.0.0
+description: "Motion design da RUBRA: teasers, Reels do zero, vídeos publicitários, animação, cenas 3D e sonoplastia com render MP4. Use quando não houver filmagem para editar."
 ---
 
 # RUBRA · Motion

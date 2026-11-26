@@ -1,7 +1,6 @@
 ---
 name: rubra-revisao
-description: Controle de qualidade da RUBRA. Use antes de entregar qualquer peça, carrossel, identidade, texto, vídeo ou motion, e quando a Gabriela pedir para analisar, criticar ou melhorar um material (inclusive de terceiros). Crítica em três níveis com evidência e correção concreta; nunca nota de autoavaliação.
-version: 1.0.0
+description: "Revisa peças, marcas, textos e vídeos da RUBRA antes da entrega. Inspeciona resultados reais, identifica falhas e exige correções concretas com evidências."
 ---
 
 # RUBRA · Revisão

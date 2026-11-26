@@ -1,7 +1,6 @@
 ---
 name: rubra-direcao
-description: Direção criativa da RUBRA. Use ANTES de criar qualquer peça, campanha, carrossel, identidade, motion ou vídeo com decisão criativa relevante — transforma briefing e referências em conceitos genuinamente distintos, fora da resposta óbvia. Não use para desdobrar uma direção já aprovada (modo produção) nem para ajustes pontuais.
-version: 1.0.0
+description: "Direção criativa da RUBRA: transforma briefing e referências em conceitos fora do óbvio antes de criar campanhas, peças, identidades ou vídeos relevantes."
 ---
 
 # RUBRA · Direção criativa

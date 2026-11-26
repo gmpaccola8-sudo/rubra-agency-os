@@ -1,7 +1,6 @@
 ---
 name: rubra-texto
-description: Texto e conteúdo da RUBRA — copy de peças e anúncios, legendas, títulos, CTAs, roteiros de Reels/vídeo, bio de Instagram, planejamento e calendário editorial, diagnóstico de perfil, mensagens para cliente e WhatsApp. Use sempre que o entregável principal for palavra (ou a palavra de uma peça).
-version: 1.0.0
+description: "Texto e estratégia de conteúdo da RUBRA: copy, legendas, títulos, CTAs, roteiros, bio, calendário editorial, diagnóstico de perfil e mensagens para clientes."
 ---
 
 # RUBRA · Texto e conteúdo

@@ -1,7 +1,6 @@
 ---
 name: rubra-marca
-description: Branding da RUBRA — posicionamento, identidade visual, logo, monograma, símbolo, paleta, tipografia, sistema gráfico, aplicações e guia de marca, e o design.json de cada cliente. Use para criar, redesenhar, auditar ou documentar uma marca. Para peças de uma marca já definida, use rubra-grafico.
-version: 1.0.0
+description: "Branding da RUBRA: posicionamento, identidade visual, logo, monograma, paleta, tipografia, aplicações, guia de marca e o design.json de cada cliente."
 ---
 
 # RUBRA · Marca
