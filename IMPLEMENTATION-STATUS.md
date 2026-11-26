@@ -4,16 +4,17 @@
 > Cópia mestre: Google Drive → `RUBRA AGENCY OS / DOCUMENTACAO / IMPLEMENTATION-STATUS.md`
 > Cópia mestre: repositório GitHub privado `gmpaccola8-sudo/rubra-agency-os`. O Drive guarda um espelho.
 
-Última atualização: 2026-11-26 · Fase atual: **03 — Pesquisa técnica e testes** (Fase 04 parcialmente concluída)
+Última atualização: 2026-11-26 · Fase atual: **03 — Pesquisa técnica e testes** · pipeline de vídeo real ✅ validado com mídia sintética
 
 ---
 
 ## Próxima ação
 
-**Claude:** Fase 03 — pesquisa técnica (ferramentas aprovadas, geração de imagem e vídeo por IA) e testes
-reais na nuvem, começando pelo pipeline de vídeo (FFmpeg + Faster-Whisper). O que for aprovado nos testes
-vira o script de ambiente da nuvem (reinstalação automática em cada sessão).
-**Gabriela (sem urgência):** amostras de calibração no Drive; teste de abertura do .zip do backup.
+**Claude:** continuar a Fase 03 — motion (HyperFrames × Remotion, teste com cena real de 3–5 s),
+depois Impeccable × Taste Skill, vetor/pré-impressão (Inkscape, vtracer, Ghostscript) e pesquisa
+de geração de imagem e vídeo por IA (custos, licença, qualidade).
+**Gabriela (sem urgência):** vídeo bruto real em `CALIBRACAO/03-VIDEO-BRUTO-TESTE` (para validar o
+pipeline com voz humana) e as demais amostras; teste de abertura do .zip do backup.
 
 ---
 
@@ -29,7 +30,9 @@ vira o script de ambiente da nuvem (reinstalação automática em cada sessão).
 | 04 | Conexão GitHub ↔ claude.ai (app Claude, só este repositório) | ✅ |
 | 04 | Estrutura do repositório + commit inicial | ✅ |
 | 04 | Barreira contra material confidencial (.gitignore + hook) | ✅ testada |
-| 04 | Script de ambiente da nuvem | ⏳ Claude, após os testes da Fase 03 |
+| 04 | Ambiente de nuvem `rubra-agency-os` (rede: Canva, Drive, Hugging Face) | ✅ criado com aprovação |
+| 04 | Script de ambiente da nuvem (`setup/nuvem.sh`) | ✅ testado (11 s); salvo no ambiente |
+| 03 | Pipeline de edição de vídeo real (transcrever → analisar → montar → inspecionar) | ✅ validado com bruto sintético; falta voz humana |
 | 04 | Claude Code local no Windows | ⏳ depois da nuvem (só se os testes provarem necessidade) |
 | — | Amostras de calibração no Drive | ⏳ Gabriela (pastas já criadas) |
 | 03 | Pesquisa técnica: ferramentas, geração de imagem e vídeo por IA | ⏳ pendente |
@@ -80,6 +83,10 @@ A pasta pré-existente "RUBRA" (posts da própria RUBRA) não foi tocada.
 | D5 | 11-26 | 9 skills + 3 agentes + comandos + scripts (ver arquitetura). | Especialização sem redundância. |
 | D6 | 11-26 | Skills desativadas só depois de a substituta provar resultado melhor. | Não perder capacidade durante a transição. |
 | D7 | 11-26 | Nuvem primeiro; local só onde os testes provarem necessidade. | A nuvem já tem FFmpeg, Node, Python, Chromium. Local exige instalação no Windows. |
+| D9 | 11-26 | Transcrição padrão: Faster-Whisper `large-v3-turbo` + glossário do cliente. | Teste: 2,7% de erro e nomes corretos vs 8,2% do `small`. |
+| D10 | 11-26 | Legenda nunca é queimada sem revisão de grafia. | Até o melhor modelo erra nomes sem glossário. |
+| D11 | 11-26 | Detecção de falso início por estrutura (frase recomeçada), não por palavra-chave. | O modelo transcreveu "a... não, espera" como "o Anão. Espera." |
+| D12 | 11-26 | Cortes são PROPOSTA do script; decisão editorial é de quem dirige. | Edição é narrativa, não só remoção de pausa. |
 | D8 | 11-26 | Nuvem = estúdio de produção (render, transcrição, motion). PC = acesso a arquivos. Imagem por IA = serviço externo. | PC com 7,7 GB RAM e GPU integrada; o servidor da nuvem é mais potente. |
 
 ## Arquitetura de funções (aprovada em princípio)
@@ -129,12 +136,14 @@ A testar: se o Claude Code local também recebe as skills do claude.ai (decide s
 
 | Ferramenta | Instalada | Testada com tarefa real | Resultado |
 |---|---|---|---|
-| FFmpeg 6.1.1 (nuvem) | ✅ | ❌ | — |
 | Node 22 / Python 3.13 / Pillow 13 (nuvem) | ✅ | ❌ | — |
 | ImageMagick 6.9 (nuvem) | ✅ | ❌ | — |
 | Playwright + Chromium (nuvem) | ✅ | ❌ | — |
 | Canva (conector) | ✅ conectado | ❌ | — |
 | Google Drive (conector) | ✅ | ✅ upload, pastas, metadados | funcionando |
+| FFmpeg 6.1.1 (libass, loudnorm, arnndn, x264) | ✅ | ✅ cortes, tratamento de voz, loudness 2 passagens, legendas, MP4 | -14,0 LUFS, pico -1,4 dB, H.264/AAC estéreo |
+| Faster-Whisper 1.2.1 (MIT) | ✅ | ✅ PT-BR, palavras com tempo | small 8,2% erro · medium 5,5% · large-v3-turbo 2,7%; turbo ≈0,3–0,6× tempo real em 4 núcleos |
+| Piper TTS 1.8 (GPL-3) + voz pt_BR-faber (dataset CC0) | ✅ | ✅ gerou bruto de teste | uso apenas para mídia de teste |
 | Barreira de confidencialidade | ✅ | ✅ commit com fonte, imagem, chave falsa e pasta de cliente | 4/4 bloqueados; .gitignore oculta sem -f |
 
 Aprovadas para teste: HyperFrames, Remotion, Impeccable, Taste Skill, Whisper, Faster-Whisper,
@@ -162,4 +171,24 @@ licenças: Canva Pro, CapCut Pro · GitHub: sem conta confirmada.
 | P1 | rubra-motion-studio referencia 8 arquivos inexistentes | Reconstrução aprovada |
 | P2 | Drive não informa checksum via conector | Verificação feita por tamanho + upload por hash; falta teste de abertura |
 | P3 | Sessão na nuvem é temporária | Resolvido em parte: GitHub ativo. Falta script de ambiente. |
+| P5 | Hugging Face bloqueado pela rede / protocolo Xet usa host extra | Hosts liberados; `HF_HUB_DISABLE_XET=1` evita o host Xet |
+| P6 | faster-whisper 1.2.1 incompatível com PyAV recente (`metadata_errors`) | Áudio decodificado pelo FFmpeg do sistema |
+| P7 | Inspeção visual achou legendas atravessando frase/corte e terminando em artigo | Regras novas de cartela; reinspecionado ✅ |
+| P8 | Saída de áudio mono | Forçado estéreo; reinspecionado ✅ |
 | P4 | 1ª tentativa de instalar o app Claude no GitHub não achou o repositório | Repositório não havia sido criado; criado e resolvido. |
+
+## Pipeline de vídeo — como usar (validado)
+
+```
+/opt/rubra-venv/bin/python scripts/video/transcrever.py bruto.mp4 trans.json large-v3-turbo pt glossario.txt
+python3 scripts/video/analisar_falas.py trans.json proposta.json        # revisar a proposta!
+python3 scripts/video/montar.py bruto.mp4 proposta.json trans.json final.mp4 [estilo.json]
+python3 scripts/video/inspecionar.py final.mp4 inspecao/ proposta.json   # e OLHAR as folhas .png
+```
+Teste reproduzível: `tests/fixtures/gerar_bruto_sintetico.py` (bruto de 33 s com falso início,
+take repetido, pausas longas e ruído). Resultado: 33,3 s → 19,9 s, todos os 4 problemas detectados.
+
+Limites atuais (honestos): testado só com voz sintética; estilo de legenda é neutro (o estilo
+autoral por cliente e destaque animado por palavra entram na Fase 09); sem b-roll, trilha, zoom
+ou correção de cor ainda; a seleção de "melhores trechos" por narrativa é decisão do Claude/da
+Gabriela sobre a transcrição, não do script.

@@ -1,0 +1,5 @@
+# Dependências Python do RUBRA AGENCY OS — instaladas em /opt/rubra-venv pelo setup/nuvem.sh
+# Só entra aqui o que passou em teste real (ver IMPLEMENTATION-STATUS.md).
+faster-whisper==1.2.1   # MIT · transcrição local, sem envio de áudio
+numpy                   # decodificação de áudio via FFmpeg
+piper-tts==1.8.0        # GPL-3 · voz sintética PT-BR, só para gerar mídia de teste
