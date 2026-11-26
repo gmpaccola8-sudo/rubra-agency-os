@@ -1,6 +1,6 @@
 ---
 name: rubra-marca
-description: "Branding da RUBRA: posicionamento, identidade visual, logo, monograma, paleta, tipografia, aplicações, guia de marca e o design.json de cada cliente."
+description: "Branding da RUBRA: posicionamento, identidade visual, logos, monogramas, tipografia, sistemas gráficos, aplicações e guias de marca. Use para criar ou auditar marcas."
 ---
 
 # RUBRA · Marca

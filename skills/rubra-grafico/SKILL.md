@@ -1,6 +1,6 @@
 ---
 name: rubra-grafico
-description: "Peças gráficas da RUBRA: anúncios, posts, carrosséis, stories e materiais comerciais renderizados em PNG ou PDF e inspecionados antes da entrega."
+description: "Cria peças gráficas da RUBRA: anúncios, posts, carrosséis, stories, cartazes e materiais comerciais. Renderiza e inspeciona PNG/PDF após definir a direção criativa."
 ---
 
 # RUBRA · Peças gráficas
