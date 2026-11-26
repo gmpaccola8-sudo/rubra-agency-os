@@ -1,20 +1,71 @@
 # RUBRA AGENCY OS — IMPLEMENTATION-STATUS
 
 > Documento de continuidade. Qualquer sessão nova começa lendo este arquivo.
-> Cópia mestre: Google Drive → `RUBRA AGENCY OS / DOCUMENTACAO / IMPLEMENTATION-STATUS.md`
-> Cópia mestre: repositório GitHub privado `gmpaccola8-sudo/rubra-agency-os`. O Drive guarda um espelho.
+> Cópia mestre: repositório GitHub privado `gmpaccola8-sudo/rubra-agency-os`.
+> Espelho: Google Drive → `RUBRA AGENCY OS / DOCUMENTACAO / IMPLEMENTATION-STATUS.md`.
+> O histórico completo de versões deste arquivo está no Git (`git log -p IMPLEMENTATION-STATUS.md`).
 
-Última atualização: 2026-11-26 · Fase atual: **03 — Pesquisa técnica e testes** · pipeline de vídeo real ✅ validado com mídia sintética
+Última atualização: 2026-11-26 (3ª rodada) · Fase atual: **03 — Pesquisa técnica e testes**
 
 ---
 
 ## Próxima ação
 
-**Claude:** continuar a Fase 03 — motion (HyperFrames × Remotion, teste com cena real de 3–5 s),
-depois Impeccable × Taste Skill, vetor/pré-impressão (Inkscape, vtracer, Ghostscript) e pesquisa
-de geração de imagem e vídeo por IA (custos, licença, qualidade).
-**Gabriela (sem urgência):** vídeo bruto real em `CALIBRACAO/03-VIDEO-BRUTO-TESTE` (para validar o
-pipeline com voz humana) e as demais amostras; teste de abertura do .zip do backup.
+**Decisões pendentes da Gabriela (arquitetura):**
+1. Número de pessoas na RUBRA (define a licença do Remotion → motor de motion principal).
+2. Como entregar arquivos pesados (vídeos > 3 MB) da nuvem para o Drive (ver P10).
+
+**Claude (autônomo, sem depender dela):**
+1. Iteração 2 da cena "Atrito" (abertura legível, transição sem campo chapado) no motor escolhido.
+2. Testes gráficos — começar por Impeccable × Taste Skill × Canvas Design (leitura de código, segurança
+   via auditor-de-skills, teste com a mesma peça), depois peça publicitária autoral e tipografia.
+3. Vetor/pré-impressão: Inkscape CLI, vtracer, Ghostscript (PDF/X, CMYK, sangria).
+4. Pesquisa de geração de imagem e vídeo por IA (qualidade, custo, licença comercial, privacidade).
+
+**Gabriela (sem urgência):** vídeo bruto real em `CALIBRACAO/03-VIDEO-BRUTO-TESTE`; demais amostras;
+abrir o .zip do backup no Windows.
+
+---
+
+## Mapa de maturidade das capacidades
+
+Estados: `Planejado` → `Instalado` → `Testado (simulado)` → `Testado (material real)` →
+`Validado tecnicamente` → `Validado criativamente` → `Aprovado para produção`.
+Validação criativa e aprovação para produção dependem da Gabriela.
+
+| Capacidade | Estado atual | Evidência / o que falta |
+|---|---|---|
+| **Infraestrutura** | | |
+| Repositório GitHub + barreira de confidencialidade | Validado tecnicamente | 4/4 bloqueios; revalidado em sessão nova |
+| Ambiente de nuvem com reinstalação automática | Validado tecnicamente | Sessão nova independente: 6/6 verificações passaram (2026-11-26) |
+| Versões travadas + procedimento de recuperação | Validado tecnicamente | `setup/requirements.lock` instalado do zero em ambiente limpo; `docs/RECUPERACAO.md` |
+| Entrega de arquivos pesados ao Drive | **Bloqueado** | Conector aceita ~3,1 MB por chamada (P10) |
+| **Edição audiovisual (filmagem real)** — PROTÓTIPO FUNCIONAL | | |
+| Transcrição local PT-BR (Faster-Whisper) | Testado (simulado) | Voz sintética; falta voz humana |
+| Análise de falas (pausas, take repetido, falso início) | Testado (simulado) | 3 testes de regressão; falta material real |
+| Montagem: cortes, voz, loudness, legenda neutra | Validado tecnicamente | -14 LUFS, H.264/AAC estéreo; só simulado |
+| Inspeção técnica + folhas de quadros | Validado tecnicamente | Pegou falhas reais de legenda |
+| Seleção de melhores trechos / narrativa / retenção | Planejado | Ver "Roteiro da edição profissional" |
+| Legendas com direção tipográfica e destaque contextual | Planejado | Estilo por cliente via `estilo.json` |
+| B-roll, reenquadramento, cor, trilha, SFX, transições | Planejado | |
+| **Motion design** | | |
+| Cena 3D determinística independente de motor | Testado (simulado) | "Atrito": luz, material, sombra, faíscas, transição motivada |
+| HyperFrames 0.9.98 | Validado tecnicamente | Render 2m57s; check sem erros; telemetria desligada |
+| Remotion 4.0.547 | Validado tecnicamente | Render 2m08s; licença depende do nº de pessoas |
+| Sonoplastia sintetizada sincronizada | Validado tecnicamente | 0,0 ms de desvio nos dois motores; **não ouvido** |
+| Qualidade criativa do motion | Testado (simulado) — não validado | Abertura ilegível 2,5 s; ver `docs/testes/motion-01-resultado.md` |
+| **Design gráfico e direção de arte** | | |
+| Peça publicitária autoral | Planejado | |
+| Composição tipográfica profissional | Planejado | |
+| Carrossel com narrativa visual | Planejado | |
+| Manipulação de fotografias (Pillow/OpenCV) | Planejado | |
+| Identidade visual (monograma, sistema) | Planejado | Base: skill identidade-visual-monograma |
+| Mockups realistas (perspectiva sobre foto real) | Planejado | |
+| Vetorização (vtracer, Inkscape) | Planejado | |
+| Produção gráfica (PDF/X, CMYK, sangria) | Planejado | Ghostscript |
+| Geração de imagens por IA | Planejado | Pesquisa de serviços; PC não suporta local |
+| Crítica visual independente (agente revisor) | Planejado | Método já usado: folha de quadros + crítica |
+| Impeccable × Taste Skill × Canvas Design | Planejado | Aprovados para teste |
 
 ---
 
@@ -22,23 +73,41 @@ pipeline com voz humana) e as demais amostras; teste de abertura do .zip do back
 
 | Fase | Etapa | Status |
 |---|---|---|
-| 01 | Inventário do ambiente (skills, conectores, ferramentas) | ✅ concluído |
-| 02 | Backup das 55 skills no Drive | ✅ concluído e verificado (ver abaixo) |
-| 02 | Matriz individual das 55 skills | ✅ entregue — aguarda aprovação |
+| 01 | Inventário do ambiente | ✅ |
+| 02 | Backup das 55 skills no Drive | ✅ verificado |
+| 02 | Matriz individual das 55 skills (`docs/auditoria/AUDITORIA-SKILLS.md`) | ✅ entregue — aguarda revisão |
 | 02 | Teste de recuperação do backup no Windows | ⏳ Gabriela |
-| 04 | Conta GitHub + repositório privado | ✅ `gmpaccola8-sudo/rubra-agency-os` (privado) |
-| 04 | Conexão GitHub ↔ claude.ai (app Claude, só este repositório) | ✅ |
-| 04 | Estrutura do repositório + commit inicial | ✅ |
-| 04 | Barreira contra material confidencial (.gitignore + hook) | ✅ testada |
-| 04 | Ambiente de nuvem `rubra-agency-os` (rede: Canva, Drive, Hugging Face) | ✅ criado com aprovação |
-| 04 | Script de ambiente da nuvem (`setup/nuvem.sh`) | ✅ testado (11 s); salvo no ambiente |
-| 03 | Pipeline de edição de vídeo real (transcrever → analisar → montar → inspecionar) | ✅ validado com bruto sintético; falta voz humana |
-| 04 | Claude Code local no Windows | ⏳ depois da nuvem (só se os testes provarem necessidade) |
-| — | Amostras de calibração no Drive | ⏳ Gabriela (pastas já criadas) |
-| 03 | Pesquisa técnica: ferramentas, geração de imagem e vídeo por IA | ⏳ pendente |
-| 03 | Testes reais das ferramentas | ⏳ pendente |
-| 06–10 | Construção das skills, agentes, scripts | ⏳ pendente |
-| 12 | Testes comparativos A/B/C | ⏳ pendente |
+| 04 | GitHub privado + app Claude só neste repositório | ✅ |
+| 04 | Barreira de confidencialidade | ✅ testada |
+| 04 | Ambiente de nuvem `rubra-agency-os` (rede, variável, script) | ✅ |
+| 04 | Persistência validada em sessão nova | ✅ 6/6 |
+| 04 | Claude Code local no Windows | ⏳ ganhou motivo concreto: P10 |
+| 03 | Pipeline de vídeo real (protótipo) | ✅ simulado |
+| 03 | Motion: HyperFrames × Remotion | ✅ comparação técnica concluída |
+| 03 | Testes gráficos, vetor, pré-impressão, imagem por IA | ⏳ próximos |
+| 06–10 | Skills, agentes, comandos | ⏳ |
+| 12 | Testes comparativos A/B/C | ⏳ |
+
+---
+
+## Roteiro da edição audiovisual profissional (planejado)
+
+Princípio: nenhum recurso é obrigatório. A edição parte do objetivo, público e identidade do cliente,
+e de referências (regra permanente em `CLAUDE.md`). Antes de um estilo novo: pedir/pesquisar referências.
+
+| Camada | Como será feito | Ferramenta |
+|---|---|---|
+| Seleção de melhores trechos | Transcrição + marcação editorial (gancho, argumento, prova, fecho) feita pelo Claude sobre o texto; script só executa | Whisper + `analisar_falas.py` estendido |
+| Narrativa e retenção | Estrutura proposta antes do corte (gancho nos 3 s, progressão, CTA único); medição de ritmo (duração média de plano, pausas) | Relatório de ritmo |
+| Legenda com direção tipográfica | `estilo.json` por cliente (fonte da marca, peso, caixa, posição); destaque de palavra-chave só quando a fala pede | ASS (libass) / Remotion |
+| Motion graphics contextual | Cartelas, números, nomes — cenas independentes de motor | Remotion/HyperFrames |
+| B-roll | Só material do cliente ou licenciado, com registro de origem | FFmpeg |
+| Reenquadramento | 16:9 → 9:16 seguindo o rosto (detecção de rosto) quando a resolução permite | OpenCV |
+| Cor | Correção técnica (exposição, balanço) + LUT por cliente, nunca filtro genérico | FFmpeg (lut3d, eq) |
+| Áudio | Já existe: limpeza, compressão, loudness. A adicionar: ducking da trilha sob a voz | FFmpeg (sidechaincompress) |
+| Trilhas e SFX | Licenciadas pelo cliente, livres com licença registrada, ou sintetizadas | registro de licença |
+| Transições | Corte seco como padrão; transição só quando motivada por movimento/forma | — |
+| Naturalidade | Pausas de respiração preservadas (0,35 s); sem cortes de sílaba (padding 0,12 s) | já implementado |
 
 ---
 
@@ -49,13 +118,8 @@ pipeline com voz humana) e as demais amostras; teste de abertura do .zip do back
 | backup-skills-2026-11-26.zip | 1Fv9K1nHDfxm0qDXOikn-YSdv4p4wYuxw | 906.740 B | bf50bde1…7543cf |
 | backup-skills-2026-11-26.tar.gz | 1ZOI80nKNvSIMvAJCaC-qnbtLKlrWK-lQ | 798.556 B | 708eb6d4…bf5370 |
 
-Verificações feitas: zip testado (sem erros), 55 SKILL.md contados dentro do arquivo, upload por
-referência sha256 ao arquivo local, tamanho no Drive idêntico ao original, visibilidade PRIVADA.
-Falta: abrir o .zip no Windows (teste de recuperação real).
-
-**Como recuperar:** Drive → RUBRA AGENCY OS → BACKUP → baixar o .zip → clique direito → Extrair tudo.
-Cada pasta é uma skill; para reinstalar, compactar a pasta da skill em .zip e enviar em
-claude.ai → Configurações → Capacidades → Skills.
+Recuperar: Drive → RUBRA AGENCY OS → BACKUP → baixar .zip → Extrair tudo. Reinstalar uma skill:
+compactar a pasta dela em .zip e enviar em claude.ai → Configurações → Capacidades → Skills.
 
 ## Estrutura no Drive
 
@@ -66,7 +130,8 @@ RUBRA AGENCY OS/                 14v5QbP2iGp1vpYtHi29HKZWdkc5n13nq
 │   ├── 01-AMADORAS/             1CSSr1-Twz1YkWJP-G6DWamt_izAPfUe9
 │   ├── 02-EXCELENTES/           1nthFzyz-HWcFCZcc83mFbGdCefI8Fm-i
 │   └── 03-VIDEO-BRUTO-TESTE/    1AmaugfgVGiZhhf5I6iK9f_Anmk9nyrXP
-└── DOCUMENTACAO/                1pnhWeWs5up_ZjiwQqBDxfB9MjOvA4aKx
+├── DOCUMENTACAO/                1pnhWeWs5up_ZjiwQqBDxfB9MjOvA4aKx
+└── TESTES/                      1i2xrlMMN1Z56GqMd90jtH6fLbYL_6fcx
 ```
 A pasta pré-existente "RUBRA" (posts da própria RUBRA) não foi tocada.
 
@@ -77,118 +142,108 @@ A pasta pré-existente "RUBRA" (posts da própria RUBRA) não foi tocada.
 | # | Data | Decisão | Por quê |
 |---|---|---|---|
 | D1 | 11-26 | GitHub privado = código, skills, agentes, docs. Drive = materiais de clientes. | Versionamento sem expor material confidencial. |
-| D2 | 11-26 | Nada de clientes, fontes licenciadas, fotos, credenciais ou chaves no GitHub. | Exigência da Gabriela. Reforçado por `.gitignore` e verificação antes de cada commit. |
-| D3 | 11-26 | Nova pasta "RUBRA AGENCY OS" separada da pasta "RUBRA" existente. | Não misturar sistema com conteúdo. |
-| D4 | 11-26 | Backup em .zip (Windows) + .tar.gz. | .zip abre nativamente no Windows. |
-| D5 | 11-26 | 9 skills + 3 agentes + comandos + scripts (ver arquitetura). | Especialização sem redundância. |
-| D6 | 11-26 | Skills desativadas só depois de a substituta provar resultado melhor. | Não perder capacidade durante a transição. |
-| D7 | 11-26 | Nuvem primeiro; local só onde os testes provarem necessidade. | A nuvem já tem FFmpeg, Node, Python, Chromium. Local exige instalação no Windows. |
-| D9 | 11-26 | Transcrição padrão: Faster-Whisper `large-v3-turbo` + glossário do cliente. | Teste: 2,7% de erro e nomes corretos vs 8,2% do `small`. |
-| D10 | 11-26 | Legenda nunca é queimada sem revisão de grafia. | Até o melhor modelo erra nomes sem glossário. |
-| D11 | 11-26 | Detecção de falso início por estrutura (frase recomeçada), não por palavra-chave. | O modelo transcreveu "a... não, espera" como "o Anão. Espera." |
-| D12 | 11-26 | Cortes são PROPOSTA do script; decisão editorial é de quem dirige. | Edição é narrativa, não só remoção de pausa. |
-| D8 | 11-26 | Nuvem = estúdio de produção (render, transcrição, motion). PC = acesso a arquivos. Imagem por IA = serviço externo. | PC com 7,7 GB RAM e GPU integrada; o servidor da nuvem é mais potente. |
+| D2 | 11-26 | Nada de clientes, fontes licenciadas, fotos, credenciais ou chaves no GitHub. | Exigência da Gabriela; `.gitignore` + hook. |
+| D3 | 11-26 | Pasta "RUBRA AGENCY OS" separada da pasta "RUBRA". | Não misturar sistema com conteúdo. |
+| D4 | 11-26 | Backup em .zip + .tar.gz. | .zip abre nativamente no Windows. |
+| D5 | 11-26 | 9 skills + 3 agentes + comandos + scripts. | Especialização sem redundância. |
+| D6 | 11-26 | Skills desativadas só depois de a substituta provar resultado melhor. | Não perder capacidade na transição. |
+| D7 | 11-26 | Nuvem primeiro; local só onde os testes provarem necessidade. | Nuvem já tem as ferramentas. |
+| D8 | 11-26 | Nuvem = estúdio de produção. PC = acesso a arquivos. Imagem por IA = serviço externo. | PC: 7,7 GB RAM, GPU integrada. |
+| D9 | 11-26 | Transcrição padrão: `large-v3-turbo` + glossário do cliente. | 2,7% de erro vs 8,2% do `small`. |
+| D10 | 11-26 | Legenda nunca é queimada sem revisão de grafia. | Até o melhor modelo erra nomes. |
+| D11 | 11-26 | Falso início detectado por estrutura, inclusive dentro da mesma frase. | Whisper varia a pontuação entre execuções. |
+| D12 | 11-26 | Cortes são PROPOSTA do script; decisão editorial é de quem dirige. | Edição é narrativa. |
+| D13 | 11-26 | Regra permanente: referências e contexto do cliente antes de criar (em `CLAUDE.md`). | Pedido da Gabriela. |
+| D14 | 11-26 | Autonomia em testes internos; consulta só para criação, custo, permissão, confidencial, arquitetura. | Pedido da Gabriela. |
+| D15 | 11-26 | Estados de maturidade obrigatórios; edição de vídeo = protótipo funcional. | Pedido da Gabriela. |
+| D16 | 11-26 | Cenas de motion independentes de motor (`render(t)` puro). | Teste mostrou: qualidade vem da cena, não do motor. |
+| D17 | 11-26 | HyperFrames sempre com telemetria desligada; não enviar "usage note". | Envia uso ao PostHog por padrão. |
+| D18 | 11-26 | Dependências de motion locais (sem CDN). | CDN bloqueado e frágil; reprodutibilidade. |
 
 ## Arquitetura de funções (aprovada em princípio)
 
 | Função | Forma | Justificativa técnica |
 |---|---|---|
-| Orquestração (RUBRA CORE) | CLAUDE.md + instrução de Projeto | Precisa estar sempre ativa; skill depende de acionamento. |
-| Direção criativa + publicidade | skill `rubra-direcao` | Conhecimento carregado sob demanda no contexto principal, onde a conversa com você acontece. |
-| Branding | skill `rubra-marca` | Idem; inclui o padrão design.json. |
-| Design gráfico | skill `rubra-grafico` + scripts de render | Precisa de scripts (HTML/SVG → PNG/PDF). |
-| Imagem (geração, tratamento, mockup) | skill `rubra-imagem` + scripts | Nova; depende da pesquisa da Fase 03. |
-| Estratégia de conteúdo + copy | skill `rubra-texto` | Texto não exige isolamento. |
-| Edição audiovisual | skill `rubra-video` + scripts | Pipeline FFmpeg/Whisper. |
-| Motion design | skill `rubra-motion` + scripts | HyperFrames/Remotion. |
-| Produção técnica | skill `rubra-producao` + scripts de verificação | Determinística: script mede, não opina. |
-| Controle de qualidade | **agente** `rubra-revisor` | Contexto separado = não defende o próprio trabalho; vê só o arquivo renderizado. |
-| Pesquisa | **agente** `rubra-pesquisador` | Lê dezenas de páginas; devolve só a síntese, sem poluir o contexto da criação. |
-| Análise de mídia bruta | **agente** `rubra-analista-de-midia` | Transcrição e quadros de horas de filmagem são volumosos; devolve log de takes. |
-| Gestão de projetos | comandos + estrutura de pastas + scripts | Gestão é registro e rotina, não "personalidade". |
+| Orquestração (RUBRA CORE) | CLAUDE.md + instrução de Projeto | Precisa estar sempre ativa. |
+| Direção criativa + publicidade | skill `rubra-direcao` | Conhecimento sob demanda no contexto principal. |
+| Branding | skill `rubra-marca` | Inclui o padrão design.json. |
+| Design gráfico | skill `rubra-grafico` + scripts de render | HTML/SVG → PNG/PDF. |
+| Imagem | skill `rubra-imagem` + scripts | Depende da pesquisa da Fase 03. |
+| Conteúdo + copy | skill `rubra-texto` | |
+| Edição audiovisual | skill `rubra-video` + scripts | Pipeline existente. |
+| Motion design | skill `rubra-motion` + cenas + motores | |
+| Produção técnica | skill `rubra-producao` + scripts | Script mede, não opina. |
+| Controle de qualidade | **agente** `rubra-revisor` | Julgamento independente sobre o arquivo renderizado. |
+| Pesquisa | **agente** `rubra-pesquisador` | Isola volume de leitura. |
+| Análise de mídia bruta | **agente** `rubra-analista-de-midia` | Isola volume de transcrição/quadros. |
+| Gestão de projetos | comandos + pastas + scripts | |
 
-Por que não mais agentes: um agente só se justifica por (1) julgamento independente, (2) isolamento
-de grande volume de contexto ou (3) paralelismo. Especialização de conhecimento é papel de skill.
-Agentes funcionam com segurança apenas no Claude Code; no Chat/Cowork as skills continuam funcionando.
+## Distribuição entre ambientes
 
-## Distribuição entre ambientes (estratégia)
-
-Fonte única: repositório GitHub. Um script de empacotamento gera, a partir dele:
-1. **ZIP de cada skill** → enviado em claude.ai → Skills. Observado nesta sessão: skills do claude.ai
-   sincronizam para o Claude Code na nuvem. Alcança Chat, Cowork e Code em nuvem.
-2. **Plugin do Claude Code** (agentes, comandos, hooks, scripts) → instalado do próprio repositório.
-3. **Instrução de Projeto** curta por cliente → cola no Project do claude.ai.
-
-Regra anti-conflito: cada skill tem `version` no cabeçalho; o mesmo número aparece aqui e no
-registro de alterações. Uma skill nunca é instalada por dois canais no mesmo ambiente.
-A testar: se o Claude Code local também recebe as skills do claude.ai (decide se o plugin leva skills).
+Fonte única: GitHub. Gera: (1) ZIP por skill → claude.ai (alcança Chat, Cowork, Code nuvem);
+(2) plugin do Claude Code (agentes, comandos, scripts); (3) instrução curta por Project de cliente.
+Regra: `version` em cada skill; nunca o mesmo recurso por dois canais no mesmo ambiente.
 
 | Capacidade | Chat | Cowork | Code nuvem | Code local |
 |---|---|---|---|---|
-| Skills RUBRA (conhecimento) | ✅ | ✅ | ✅ | a testar |
+| Skills RUBRA | ✅ | ✅ | ✅ | a testar |
 | Conectores (Drive, Canva) | ✅ | ✅ | ✅ | ✅ |
-| Agentes RUBRA | ❌ | a testar | ✅ | ✅ |
-| Comandos /novo-cliente etc. | ❌ | a testar | ✅ | ✅ |
-| Render + inspeção (FFmpeg, Chromium) | limitado | limitado | ✅ | ✅ após instalar |
-| Fontes instaladas no seu PC, arquivos pesados, CapCut | ❌ | parcial | ❌ | ✅ |
+| Agentes / comandos RUBRA | ❌ | a testar | ✅ | ✅ |
+| Render + inspeção | limitado | limitado | ✅ | ✅ após instalar |
+| Arquivos pesados / fontes do PC | ❌ | parcial | ❌ (P10) | ✅ |
 
 ## Ferramentas testadas
 
-| Ferramenta | Instalada | Testada com tarefa real | Resultado |
-|---|---|---|---|
-| Node 22 / Python 3.13 / Pillow 13 (nuvem) | ✅ | ❌ | — |
-| ImageMagick 6.9 (nuvem) | ✅ | ❌ | — |
-| Playwright + Chromium (nuvem) | ✅ | ❌ | — |
-| Canva (conector) | ✅ conectado | ❌ | — |
-| Google Drive (conector) | ✅ | ✅ upload, pastas, metadados | funcionando |
-| FFmpeg 6.1.1 (libass, loudnorm, arnndn, x264) | ✅ | ✅ cortes, tratamento de voz, loudness 2 passagens, legendas, MP4 | -14,0 LUFS, pico -1,4 dB, H.264/AAC estéreo |
-| Faster-Whisper 1.2.1 (MIT) | ✅ | ✅ PT-BR, palavras com tempo | small 8,2% erro · medium 5,5% · large-v3-turbo 2,7%; turbo ≈0,3–0,6× tempo real em 4 núcleos |
-| Piper TTS 1.8 (GPL-3) + voz pt_BR-faber (dataset CC0) | ✅ | ✅ gerou bruto de teste | uso apenas para mídia de teste |
-| Barreira de confidencialidade | ✅ | ✅ commit com fonte, imagem, chave falsa e pasta de cliente | 4/4 bloqueados; .gitignore oculta sem -f |
+| Ferramenta | Estado | Resultado |
+|---|---|---|
+| Google Drive (conector) | Validado tecnicamente (com limite) | Upload ok até ~3,1 MB por chamada |
+| FFmpeg 6.1.1 | Validado tecnicamente | Cortes, voz, loudness, legendas, comparação SSIM, correlação de áudio |
+| Faster-Whisper 1.2.1 | Testado (simulado) | small 8,2% · medium 5,5% · turbo 2,7% |
+| Piper TTS 1.8 | Validado tecnicamente | Só mídia de teste |
+| Playwright + Chromium (SwiftShader) | Validado tecnicamente | Quadros de cena 3D ≈0,8 s cada |
+| Three.js 0.187 (MIT) | Validado tecnicamente | PCFSoftShadowMap removido → PCFShadowMap |
+| HyperFrames 0.9.98 (Apache 2.0) | Validado tecnicamente | ver `docs/testes/motion-01-resultado.md` |
+| Remotion 4.0.547 (licença própria) | Validado tecnicamente | idem |
+| GSAP 3.13 | Instalado | Usado só como linha do tempo vazia no HyperFrames |
+| Canva (conector) | Instalado | Não testado |
 
-Aprovadas para teste: HyperFrames, Remotion, Impeccable, Taste Skill, Whisper, Faster-Whisper,
-Video-Use, Inkscape, vtracer, OpenCV, Ghostscript, GSAP, Skill Creator.
+Aprovadas e ainda não testadas: Impeccable, Taste Skill, Whisper (original), Video-Use, Inkscape,
+vtracer, OpenCV, Ghostscript, Skill Creator.
 
 ## Dados do ambiente da Gabriela
 
-Windows · Plano Pro · usa Chat, Cowork, Code · arquivos no Drive e no PC ·
-licenças: Canva Pro, CapCut Pro · GitHub: sem conta confirmada.
-
-**Hardware verificado por print do Gerenciador de Tarefas (2026-11-26):**
-- RAM utilizável: **7,7 GB** (não 16 GB), com 91% em uso no momento do print.
-- GPU: **Intel UHD Graphics integrada**, 3,8 GB de memória compartilhada (sem GPU dedicada).
-- Disco: SSD NVMe.
-
-**Consequências (decisão D8):**
-- Geração de imagem local (Stable Diffusion/Flux): **inviável**. Geração de imagem será por serviço externo.
-- Transcrição, render de vídeo e motion: **na nuvem** (4 núcleos, 15 GB RAM), não no PC.
-- Claude Code local: continua possível (é leve), mas só para acessar arquivos/fontes do PC, não para render.
+Windows · Plano Pro · Chat, Cowork, Code · Drive + PC · Canva Pro, CapCut Pro ·
+GitHub `gmpaccola8-sudo`. Hardware (print): **7,7 GB RAM** utilizáveis (91% em uso),
+**GPU integrada Intel UHD**, SSD NVMe. Sem geração de imagem local; render pesado na nuvem.
 
 ## Problemas encontrados
 
 | # | Problema | Situação |
 |---|---|---|
 | P1 | rubra-motion-studio referencia 8 arquivos inexistentes | Reconstrução aprovada |
-| P2 | Drive não informa checksum via conector | Verificação feita por tamanho + upload por hash; falta teste de abertura |
-| P3 | Sessão na nuvem é temporária | Resolvido em parte: GitHub ativo. Falta script de ambiente. |
-| P5 | Hugging Face bloqueado pela rede / protocolo Xet usa host extra | Hosts liberados; `HF_HUB_DISABLE_XET=1` evita o host Xet |
-| P6 | faster-whisper 1.2.1 incompatível com PyAV recente (`metadata_errors`) | Áudio decodificado pelo FFmpeg do sistema |
-| P7 | Inspeção visual achou legendas atravessando frase/corte e terminando em artigo | Regras novas de cartela; reinspecionado ✅ |
-| P8 | Saída de áudio mono | Forçado estéreo; reinspecionado ✅ |
-| P4 | 1ª tentativa de instalar o app Claude no GitHub não achou o repositório | Repositório não havia sido criado; criado e resolvido. |
+| P2 | Drive não informa checksum via conector | Tamanho + upload por hash |
+| P3 | Sessão na nuvem é temporária | ✅ Resolvido: GitHub + script de ambiente, validado em sessão nova |
+| P4 | App Claude no GitHub não achava o repositório | ✅ Repositório criado |
+| P5 | Hugging Face bloqueado / host Xet | ✅ Hosts liberados; `HF_HUB_DISABLE_XET=1` |
+| P6 | faster-whisper × PyAV recente | ✅ Áudio decodificado pelo FFmpeg |
+| P7 | Legendas atravessando frase/corte, terminando em artigo | ✅ Regras de cartela |
+| P8 | Áudio mono | ✅ Estéreo |
+| P9 | Sessão nova: Whisper juntou falso início e frase certa → falso início não removido | ✅ Detecção dentro da frase + 3 testes de regressão |
+| P10 | **Conector do Drive: ~3,1 MB por chamada.** Vídeos finais não chegam ao Drive | ⏳ Decisão da Gabriela (opções no relatório) |
+| P11 | HyperFrames: telemetria ligada por padrão; modelo inicial usa CDN | ✅ Desligada; dependências locais |
+| P12 | Primeiros 2,5 s da cena "Atrito" ilegíveis | ⏳ Iteração 2 |
 
-## Pipeline de vídeo — como usar (validado)
+## Pipeline de vídeo — como usar (protótipo)
 
 ```
 /opt/rubra-venv/bin/python scripts/video/transcrever.py bruto.mp4 trans.json large-v3-turbo pt glossario.txt
 python3 scripts/video/analisar_falas.py trans.json proposta.json        # revisar a proposta!
 python3 scripts/video/montar.py bruto.mp4 proposta.json trans.json final.mp4 [estilo.json]
 python3 scripts/video/inspecionar.py final.mp4 inspecao/ proposta.json   # e OLHAR as folhas .png
+python3 -I tests/test_analisar_falas.py                                  # regressão
 ```
-Teste reproduzível: `tests/fixtures/gerar_bruto_sintetico.py` (bruto de 33 s com falso início,
-take repetido, pausas longas e ruído). Resultado: 33,3 s → 19,9 s, todos os 4 problemas detectados.
 
-Limites atuais (honestos): testado só com voz sintética; estilo de legenda é neutro (o estilo
-autoral por cliente e destaque animado por palavra entram na Fase 09); sem b-roll, trilha, zoom
-ou correção de cor ainda; a seleção de "melhores trechos" por narrativa é decisão do Claude/da
-Gabriela sobre a transcrição, não do script.
+## Motion — como reproduzir
+
+`bash motion/montar-laboratorio.sh <pasta_lab>` reconstrói o laboratório (dependências locais, fonte,
+som) e renderiza a cena "Atrito" nos dois motores.

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="lib/gsap.min.js"></script>
+    <script type="importmap">
+      { "imports": { "three": "./lib/three.module.js", "three/addons/": "./lib/addons/" } }
+    </script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #030202; }
+      #root { width: 100%; height: 100%; }
+      #palco { width: 1080px; height: 1920px; display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="6" data-width="1080" data-height="1920">
+      <canvas id="palco" class="clip" width="1080" height="1920" data-start="0" data-duration="6" data-track-index="0"></canvas>
+      <audio id="som" class="clip" src="assets/som.wav" data-start="0" data-duration="6" data-track-index="1" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.to({}, { duration: 6 });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+    <script type="module">
+      import { criarCena } from "./lib/cena.js";
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      const pronta = criarCena(document.getElementById("palco"), { fonteUrl: "assets/fonts/fraunces-900.woff2" });
+      window.__hf.buildReady["cena"] = pronta;
+      const cena = await pronta;
+      window.addEventListener("hf-seek", (e) => cena.render(e.detail.time));
+      cena.render(0);
+    </script>
+  </body>
+</html>
