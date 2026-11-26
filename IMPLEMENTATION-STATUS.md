@@ -11,9 +11,23 @@
 
 ## Próxima ação
 
-**Foco: RUBRA AGENCY OS 1.0** — ver `docs/V1-PLANO.md` (8 etapas, backlog).
-**Gabriela:** aprovar a lista de skills (remover 32, manter 23, instalar 8 novas).
-**Claude, após aprovação:** escrever as 6 skills restantes, empacotar, publicar no Drive com guia.
+**RUBRA OS 1.0 empacotado.** 8 skills em Drive → `RUBRA AGENCY OS / INSTALAR` (+ guia).
+**Gabriela:** (1) subir os 8 ZIPs no claude.ai; (2) aprovar a lista de remoção (32) e desativá-las.
+**Depois:** teste de aceitação com uma demanda real; configuração local (Drive para computador + app Claude).
+
+| Etapa 1.0 | Status |
+|---|---|
+| 1 Aprovar lista de skills | ⏳ Gabriela |
+| 2 Escrever as skills (8/8) | ✅ |
+| 3 Empacotar + guia no Drive | ✅ ZIPs conferidos byte a byte |
+| 4 Agentes no repositório (`.claude/agents`: revisor, pesquisador, analista de mídia) | ✅ |
+| 5 Pasta CLIENTES no Drive + modelo de Project (`rubra-os/references/modelo-project.md`) | ✅ |
+| 6 Instalar no claude.ai e desativar antigas | ⏳ Gabriela |
+| 7 Configuração local (Drive para computador + app Claude) | ⏳ Gabriela (opcional para começar) |
+| 8 Teste de aceitação com demanda real | ⏳ juntos |
+
+Benchmark 01 concluído: A, B e C (antes/depois da revisão) na sala de revisão privada
+https://claude.ai/artifact/LhHn2aPVQg8WZ3iJtwkPEP — aguarda avaliação da Gabriela.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: rubra-grafico
 description: Execução de peças gráficas estáticas da RUBRA — anúncios, posts, carrosséis, stories, materiais comerciais, cartazes — renderizadas em PNG/PDF e inspecionadas antes da entrega. Use depois que a direção estiver definida (rubra-direcao) ou para desdobrar uma direção aprovada. Não use para sites/interfaces nem para vídeo.
-version: 0.1.0
+version: 1.0.0
 ---
 
 # RUBRA · Peças gráficas
