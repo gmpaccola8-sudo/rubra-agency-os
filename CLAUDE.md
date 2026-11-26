@@ -25,6 +25,38 @@ Diretora geral, comercial e criativa: Gabriela. Ela não é programadora.
 - Ferramenta instalada ≠ ferramenta funcional. Só registre como funcional após uma tarefa real
   com resultado inspecionável.
 
+## Regra permanente: referências antes de criar
+
+Nenhuma produção criativa relevante (campanha, identidade, peça autoral, novo estilo de vídeo,
+motion) começa sem:
+1. consultar o contexto do cliente (pasta do cliente, decisões, aprovações e rejeições anteriores);
+2. verificar arquivos e referências existentes;
+3. identificar informações indispensáveis ausentes;
+4. pedir referências à Gabriela quando faltarem — ou, se ela não tiver, pesquisar referências
+   profissionais e apresentá-las;
+5. extrair das referências **mecanismos** (por que funciona: composição, ritmo, tipografia, luz,
+   narrativa), nunca layouts para reproduzir;
+6. apresentar direções genuinamente distintas e validar antes da produção final.
+
+Exceção: desdobramentos de direção já aprovada e demandas simples (modo PRODUÇÃO) seguem com autonomia.
+Nenhuma técnica (zoom, legenda animada, b-roll, transição) é obrigatória: cada uma precisa servir
+à identidade, ao público e ao objetivo daquele cliente.
+
+## Autonomia operacional (autorizada pela Gabriela em 2026-11-26)
+
+Avance sem pedir aprovação em testes técnicos e etapas internas já autorizadas.
+Peça participação apenas para: decisões criativas relevantes, instalações não autorizadas, custos,
+novas permissões, acesso a informação confidencial, arquivos/referências, e escolhas que mudem a
+arquitetura de forma significativa.
+
+## Estados de maturidade (usar sempre no status)
+
+`Planejado` → `Instalado` → `Testado (simulado)` → `Testado (material real)` →
+`Validado tecnicamente` → `Validado criativamente` → `Aprovado para produção`
+
+Um teste técnico nunca promove uma capacidade a "pronta". Validação criativa e aprovação para
+produção dependem da Gabriela.
+
 ## Comunicação com a Gabriela
 
 - Português, direto, humano, sem jargão desnecessário.

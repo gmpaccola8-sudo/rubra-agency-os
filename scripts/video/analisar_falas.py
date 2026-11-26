@@ -25,6 +25,19 @@ def normalizar(t: str) -> str:
     return re.sub(r"[^\w\s]", "", t.lower()).strip()
 
 
+def dividir_recomeco(palavras: list[dict], n: int = 3, janela: int = 14) -> list[list[dict]]:
+    """Recomeço DENTRO de uma frase: o Whisper às vezes junta o falso início e a frase certa
+    ("Oi, eu sou a, não, espera, oi, eu sou a Gabriela..."). Se as mesmas n palavras reaparecem
+    pouco depois, a frase é dividida no recomeço — e a regra estrutural trata o trecho abandonado.
+    Achado na validação em sessão nova (2026-11-26): mesma voz, mesmo modelo, pontuação diferente."""
+    norm = [re.sub(r"[^\w]", "", w["p"].lower()) for w in palavras]
+    for i in range(len(norm) - n):
+        for j in range(i + n, min(len(norm) - n + 1, i + janela)):
+            if norm[i:i + n] == norm[j:j + n] and all(norm[i:i + n]):
+                return [palavras[:j]] + dividir_recomeco(palavras[j:], n, janela)
+    return [palavras]
+
+
 def frases(transcricao: dict) -> list[dict]:
     """Reagrupa palavras em frases pela pontuação final — segmentos do Whisper
     nem sempre coincidem com frases."""
@@ -37,6 +50,7 @@ def frases(transcricao: dict) -> list[dict]:
                 atual = []
     if atual:
         saida.append(atual)
+    saida = [parte for f in saida for parte in dividir_recomeco(f)]
     return [{"inicio": f[0]["inicio"], "fim": f[-1]["fim"],
              "texto": " ".join(w["p"] for w in f),
              "conf_media": round(sum(w["conf"] for w in f) / len(f), 3)} for f in saida]

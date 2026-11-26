@@ -5,5 +5,5 @@ set -euo pipefail
 if [ -d rubra-agency-os ]; then
   git -C rubra-agency-os config core.hooksPath .githooks
   python3 -m venv /opt/rubra-venv
-  /opt/rubra-venv/bin/pip install -q --disable-pip-version-check -r rubra-agency-os/setup/requirements.txt
+  /opt/rubra-venv/bin/pip install -q --disable-pip-version-check -r rubra-agency-os/setup/requirements.lock
 fi
