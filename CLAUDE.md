@@ -57,6 +57,17 @@ arquitetura de forma significativa.
 Um teste técnico nunca promove uma capacidade a "pronta". Validação criativa e aprovação para
 produção dependem da Gabriela.
 
+Toda avaliação criativa separa três níveis (nenhum substitui o outro):
+- **Técnico:** o arquivo funciona (formato, fontes, nada cortado, áudio, codec).
+- **Estético:** composição, tipografia, hierarquia, acabamento.
+- **Publicitário:** conceito original, direção estratégica, narrativa visual, capacidade de despertar interesse.
+Uma ferramenta que só atinge o nível técnico não está aprovada para produção.
+
+## Universalidade
+
+Skills, scripts, motores e o revisor são universais: nunca citam um cliente, briefing ou estética
+específica. Identidade, referências, preferências e decisões de cada cliente ficam na pasta do cliente.
+
 ## Comunicação com a Gabriela
 
 - Português, direto, humano, sem jargão desnecessário.

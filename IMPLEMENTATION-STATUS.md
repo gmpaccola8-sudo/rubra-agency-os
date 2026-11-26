@@ -5,25 +5,15 @@
 > Espelho: Google Drive → `RUBRA AGENCY OS / DOCUMENTACAO / IMPLEMENTATION-STATUS.md`.
 > O histórico completo de versões deste arquivo está no Git (`git log -p IMPLEMENTATION-STATUS.md`).
 
-Última atualização: 2026-11-26 (3ª rodada) · Fase atual: **03 — Pesquisa técnica e testes**
+Última atualização: 2026-11-26 (4ª rodada) · Fase atual: **Entrega da versão 1.0**
 
 ---
 
 ## Próxima ação
 
-**Decisões pendentes da Gabriela (arquitetura):**
-1. Número de pessoas na RUBRA (define a licença do Remotion → motor de motion principal).
-2. Como entregar arquivos pesados (vídeos > 3 MB) da nuvem para o Drive (ver P10).
-
-**Claude (autônomo, sem depender dela):**
-1. Iteração 2 da cena "Atrito" (abertura legível, transição sem campo chapado) no motor escolhido.
-2. Testes gráficos — começar por Impeccable × Taste Skill × Canvas Design (leitura de código, segurança
-   via auditor-de-skills, teste com a mesma peça), depois peça publicitária autoral e tipografia.
-3. Vetor/pré-impressão: Inkscape CLI, vtracer, Ghostscript (PDF/X, CMYK, sangria).
-4. Pesquisa de geração de imagem e vídeo por IA (qualidade, custo, licença comercial, privacidade).
-
-**Gabriela (sem urgência):** vídeo bruto real em `CALIBRACAO/03-VIDEO-BRUTO-TESTE`; demais amostras;
-abrir o .zip do backup no Windows.
+**Foco: RUBRA AGENCY OS 1.0** — ver `docs/V1-PLANO.md` (8 etapas, backlog).
+**Gabriela:** aprovar a lista de skills (remover 32, manter 23, instalar 8 novas).
+**Claude, após aprovação:** escrever as 6 skills restantes, empacotar, publicar no Drive com guia.
 
 ---
 
@@ -39,7 +29,8 @@ Validação criativa e aprovação para produção dependem da Gabriela.
 | Repositório GitHub + barreira de confidencialidade | Validado tecnicamente | 4/4 bloqueios; revalidado em sessão nova |
 | Ambiente de nuvem com reinstalação automática | Validado tecnicamente | Sessão nova independente: 6/6 verificações passaram (2026-11-26) |
 | Versões travadas + procedimento de recuperação | Validado tecnicamente | `setup/requirements.lock` instalado do zero em ambiente limpo; `docs/RECUPERACAO.md` |
-| Entrega de arquivos pesados ao Drive | **Bloqueado** | Conector aceita ~3,1 MB por chamada (P10) |
+| Entrega de arquivos pesados ao Drive | Planejado | Solução escolhida: Drive para computador + Remote Control (`docs/setup/LOCAL-WINDOWS.md`) |
+| Sala de revisão privada (Artifact) | Validado tecnicamente | Vídeos e peças até 15 MB por arquivo; só para assistir |
 | **Edição audiovisual (filmagem real)** — PROTÓTIPO FUNCIONAL | | |
 | Transcrição local PT-BR (Faster-Whisper) | Testado (simulado) | Voz sintética; falta voz humana |
 | Análise de falas (pausas, take repetido, falso início) | Testado (simulado) | 3 testes de regressão; falta material real |
@@ -50,8 +41,8 @@ Validação criativa e aprovação para produção dependem da Gabriela.
 | B-roll, reenquadramento, cor, trilha, SFX, transições | Planejado | |
 | **Motion design** | | |
 | Cena 3D determinística independente de motor | Testado (simulado) | "Atrito": luz, material, sombra, faíscas, transição motivada |
-| HyperFrames 0.9.98 | Validado tecnicamente | Render 2m57s; check sem erros; telemetria desligada |
-| Remotion 4.0.547 | Validado tecnicamente | Render 2m08s; licença depende do nº de pessoas |
+| HyperFrames 0.9.98 | Validado tecnicamente — **motor complementar** | Render 2m57s; check sem erros; telemetria desligada |
+| Remotion 4.0.547 | Validado tecnicamente — **motor principal (provisório)** | Licença gratuita confirmada: RUBRA é operação individual |
 | Sonoplastia sintetizada sincronizada | Validado tecnicamente | 0,0 ms de desvio nos dois motores; **não ouvido** |
 | Qualidade criativa do motion | Testado (simulado) — não validado | Abertura ilegível 2,5 s; ver `docs/testes/motion-01-resultado.md` |
 | **Design gráfico e direção de arte** | | |
@@ -65,7 +56,12 @@ Validação criativa e aprovação para produção dependem da Gabriela.
 | Produção gráfica (PDF/X, CMYK, sangria) | Planejado | Ghostscript |
 | Geração de imagens por IA | Planejado | Pesquisa de serviços; PC não suporta local |
 | Crítica visual independente (agente revisor) | Planejado | Método já usado: folha de quadros + crítica |
-| Impeccable × Taste Skill × Canvas Design | Planejado | Aprovados para teste |
+| Impeccable / Taste Skill / Canvas Design / Frontend Design / Algorithmic Art | Investigado (código lido) | Mecanismos incorporados; nenhuma instalada (`docs/testes/ferramentas-graficas-01.md`) |
+| Direção criativa (`skills/rubra-direcao` v0.1: mapa do óbvio + 14 mecanismos + análise de referências) | Testado (simulado) | Benchmark 01, condição C |
+| Peças gráficas (`skills/rubra-grafico` v0.1 + `render.js`) | Testado (simulado) | render.js achou contraste e margem que o QC antigo não viu |
+| Revisor independente (`agents/rubra-revisor`) | Instalado | Rodando no benchmark 01 |
+| Geração de imagem — Canva (já pago) | Testado (simulado) | 1 geração; conector só devolve miniatura 160 px |
+| Geração de imagem — API externa | Planejado | Aguarda decisão de custo |
 
 ---
 
@@ -158,6 +154,11 @@ A pasta pré-existente "RUBRA" (posts da própria RUBRA) não foi tocada.
 | D15 | 11-26 | Estados de maturidade obrigatórios; edição de vídeo = protótipo funcional. | Pedido da Gabriela. |
 | D16 | 11-26 | Cenas de motion independentes de motor (`render(t)` puro). | Teste mostrou: qualidade vem da cena, não do motor. |
 | D17 | 11-26 | HyperFrames sempre com telemetria desligada; não enviar "usage note". | Envia uso ao PostHog por padrão. |
+| D19 | 11-26 | Remotion = motor principal provisório; HyperFrames complementar; testar recursos nativos de cada um. | Licença ok para operação individual; nenhum descartado por velocidade. |
+| D20 | 11-26 | Arquivos pesados: Drive para computador + Remote Control. Sem compressão para caber em limite de transferência. | Decisão da Gabriela (opção A). |
+| D21 | 11-26 | Três níveis de validação criativa: técnico, estético, publicitário. | Pedido da Gabriela. |
+| D22 | 11-26 | Não instalar Impeccable/Taste como skills; incorporar mecanismos. | Focados em web; hooks/binários geram ruído. |
+| D23 | 11-26 | Skills do sistema nunca citam cliente ou briefing específico. | Universalidade e benchmark justo. |
 | D18 | 11-26 | Dependências de motion locais (sem CDN). | CDN bloqueado e frágil; reprodutibilidade. |
 
 ## Arquitetura de funções (aprovada em princípio)
@@ -231,6 +232,8 @@ GitHub `gmpaccola8-sudo`. Hardware (print): **7,7 GB RAM** utilizáveis (91% em 
 | P9 | Sessão nova: Whisper juntou falso início e frase certa → falso início não removido | ✅ Detecção dentro da frase + 3 testes de regressão |
 | P10 | **Conector do Drive: ~3,1 MB por chamada.** Vídeos finais não chegam ao Drive | ⏳ Decisão da Gabriela (opções no relatório) |
 | P11 | HyperFrames: telemetria ligada por padrão; modelo inicial usa CDN | ✅ Desligada; dependências locais |
+| P13 | Fontes do benchmark com nomes trocados (erro do Claude) | ✅ Corrigido; registrado no protocolo |
+| P14 | Canva: resolução cheia só via novo design gerado (gasta cota) | ⏳ Pendente; perde relevância se API for aprovada |
 | P12 | Primeiros 2,5 s da cena "Atrito" ilegíveis | ⏳ Iteração 2 |
 
 ## Pipeline de vídeo — como usar (protótipo)
